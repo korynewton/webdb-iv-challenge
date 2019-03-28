@@ -1,7 +1,13 @@
 exports.seed = function(knex, Promise) {
-  return knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+  return knex('recipes').insert([
+    {name: 'Cheese', directions:"call dominos"},
+    {name: 'Peperoni', directions:"call dominos"},
+    {name: 'Anchovies', directions:"call dominos"},
+    {name: 'Florentine', directions:"uber eats"},
+    {name: 'Tomato Basil', directions:"uber eats"},
+    {name: 'Sphaghetti', directions:"uber eats"},
+    {name: 'Salmon Roll', directions:"postmates"},
+    {name: 'Vegetable Roll', directions:"postmates"},
+    {name: 'Tuna Avocado Roll', directions:"postmates"}
   ]);
 };

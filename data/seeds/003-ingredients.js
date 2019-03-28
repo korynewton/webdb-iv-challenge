@@ -1,7 +1,10 @@
 exports.seed = function(knex, Promise) {
   return knex('table_name').insert([
-    {id: 1, colName: 'rowValue1'},
-    {id: 2, colName: 'rowValue2'},
-    {id: 3, colName: 'rowValue3'}
+    {name: '10 ounces of Flour'},
+    {name: '5 cups of tomato sauce'},
+    {name: '5 cups of pasta'},
+    {name: '1 cup of pesto'},
+    {name: 'One sheet of nori'},
+    {name: '2 cups of white rice'}
   ]);
 };
