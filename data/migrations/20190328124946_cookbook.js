@@ -1,5 +1,5 @@
 
-exports.up = function(knex, Promise) {
+exports.up = function(knex) {
   return knex.schema
     .createTable('dishes', tbl => {
         tbl.increments()
@@ -18,19 +18,20 @@ exports.up = function(knex, Promise) {
     .createTable('ingredients', tbl => {
         tbl.increments();
         tbl.string('name', 255).notNullable().unique();
-        tbl.decimal('quantity').notNullable();
     })
 
     .createTable('recipestyles', tbl => {
         tbl.increments();
         tbl.string('name', 128).notNullable().unique();
         tbl.integer('dish_id').unsigned().notNullable().references('id').inTable('dishes').onDelete('CASCADE').onUpdate('CASCADE')
+        tbl.integer('recipe_id').unsigned().notNullable().references('id').inTable('recipes').onDelete('CASCADE').onUpdate('CASCADE')
+
     })
 
     .createTable('recipe_ingredients', tbl => {
         tbl.increments();
-        tbl.string('name', 128).notNullable().unique();
         tbl.integer('recipe_id').unsigned().notNullable().references('id').inTable('recipes').onDelete('CASCADE').onUpdate('CASCADE')
+        tbl.integer('ingredient_id').unsigned().notNullable().references('id').inTable('ingredients').onDelete('CASCADE').onUpdate('CASCADE')
         tbl.decimal('quantity').notNullable();
     })
 };
