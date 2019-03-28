@@ -3,7 +3,7 @@ const db = require('../data/dbConfig.js');
 module.exports = {
   find,
   findById,
-  insert
+  addDish
 };
 
 function find() {
@@ -16,7 +16,7 @@ function findById(id) {
     .first();
 }
 
-function insert(dish) {
+function addDish(dish) {
   return db('dishes')
     .insert(dish)
     .then(ids => findById(ids[0]));

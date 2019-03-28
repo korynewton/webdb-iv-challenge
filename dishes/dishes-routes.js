@@ -25,7 +25,7 @@ router.get('/:id', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const dish = await Dishes.insert(req.body);
+    const dish = await Dishes.addDish(req.body);
     res.status(201).json(dish);
   } catch {
     res.status(500).json({ message: 'error in adding dish' });
