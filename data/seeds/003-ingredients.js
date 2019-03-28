@@ -1,5 +1,5 @@
 exports.seed = function(knex, Promise) {
-  return knex('table_name').insert([
+  return knex('ingredients').insert([
     {name: '10 ounces of Flour'},
     {name: '5 cups of tomato sauce'},
     {name: '5 cups of pasta'},
