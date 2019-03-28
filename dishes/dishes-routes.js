@@ -6,7 +6,7 @@ const Dishes =  require('./dishes-model')
 router.get('/', async (req, res) => {
     // get dishes from the database
     try {
-      const dishes = await Dishes.find();
+      const dishes = await Dishes.getDishes();
       res.status(200).json(dishes);
     } catch (error) {
       res.status(500).json(error);
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   // get the dishes from the database
   try {
-    const dishes = await Dishes.findById(req.params.id);
+    const dishes = await Dishes.getDish(req.params.id);
     res.status(200).json(dishes);
   } catch (error) {
     res.status(500).json(error);
