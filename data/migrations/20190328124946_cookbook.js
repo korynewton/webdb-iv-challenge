@@ -36,5 +36,10 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  
+    return knex.schema
+    .dropTableIfExists('recipe_ingedients')
+    .dropTableIfExists('recipe_styles')
+    .dropTableIfExists('ingredients')
+    .dropTableIfExists('recipes')
+    .dropTableIfExists('dishes');
 };
